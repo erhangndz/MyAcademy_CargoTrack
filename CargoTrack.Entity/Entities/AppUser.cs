@@ -10,9 +10,9 @@ namespace CargoTrack.Entity.Entities
 
         //Navigation Properties
 
-        public IList<Cargo> SentCargos { get; set; }
-        public IList<Cargo> ReceivedCargos { get; set; }
-        public IList<Address> Addresses { get; set; }
+        public virtual IList<Cargo> SentCargos { get; set; }
+        public virtual IList<Cargo> ReceivedCargos { get; set; }
+        public virtual IList<Address> Addresses { get; set; }
 
     }
 }

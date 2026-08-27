@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CargoTrack.Entity\CargoTrack.Entity.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -6,6 +6,6 @@ namespace CargoTrack.DTO.DTOs.CityDtos
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public IList<ResultBranchDto> Branches { get; set; }
+        public IList<BranchDto> Branches { get; set; }
     }
 }
