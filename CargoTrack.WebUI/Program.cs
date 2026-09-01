@@ -10,6 +10,7 @@ using CargoTrack.Entity.Entities;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -112,7 +113,25 @@ using (var scope = app.Services.CreateScope())
 
         context.Cities.AddRange(cities);
         context.SaveChanges();
+
+
+       
     }
+
+    if (!context.Roles.Any())
+    {
+        var roles = new List<AppRole>
+            {
+                new AppRole{Name="Admin"},
+                new AppRole{Name="Manager"},
+                new AppRole{Name="User"}
+            };
+
+        context.Roles.AddRange(roles);
+        context.SaveChanges();
+    }
+
+    
 }
 
 
