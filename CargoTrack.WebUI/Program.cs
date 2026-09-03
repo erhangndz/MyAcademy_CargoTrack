@@ -43,6 +43,16 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<AppDbContext>();
 
+
+builder.Services.ConfigureApplicationCookie(config =>
+{
+    config.LoginPath = "/Login/Index";
+    config.LogoutPath = "/Login/Logout";
+    config.AccessDeniedPath = "/ErrorPages/AccessDenied";
+    config.Cookie.Name = "CargoTrackCookie";
+});
+
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -59,7 +69,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 

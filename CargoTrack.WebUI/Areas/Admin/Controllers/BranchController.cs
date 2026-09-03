@@ -2,6 +2,7 @@
 using CargoTrack.Business.Services.Cities;
 using CargoTrack.DTO.DTOs.BranchDtos;
 using CargoTrack.WebUI.Consts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -9,6 +10,7 @@ namespace CargoTrack.WebUI.Areas.Admin.Controllers
 {
 
     [Area(Area.Admin)]
+    [Authorize(Roles = Roles.Admin)]
     public class BranchController(IBranchService _branchService,
                                   ICityService _cityService) : Controller
     {
