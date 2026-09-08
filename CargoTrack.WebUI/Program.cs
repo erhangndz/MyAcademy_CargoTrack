@@ -141,6 +141,29 @@ using (var scope = app.Services.CreateScope())
         context.SaveChanges();
     }
 
+    if (!context.Cargos.Any())
+    {
+        var cargo = new Cargo
+        {
+            Id = Guid.NewGuid(),
+            SenderId = Guid.Parse("38dcc957-3de7-461d-9539-08df085c7901"),
+            ReceiverId = Guid.Parse("c759391c-c627-46cd-953a-08df085c7901"),
+            OriginBranchId = Guid.Parse("1253aafb-cccc-4eeb-97cf-394c67cfbe38"),
+            DestinationBranchId = Guid.Parse("3842bdc9-c4a6-4ced-8528-9a11686d907a"),
+            TrackCode = "CT202609081234",
+            ShipmentDate = DateTime.Now,
+            EstimatedArrivalDate = DateTime.Now.AddDays(2),
+            Weight = 2.5,
+            CargoType = CargoTrack.Entity.Entities.Enums.CargoType.Standard,
+            CargoStatus = CargoTrack.Entity.Entities.Enums.CargoStatus.DispatchedFromTransferCenter
+        };
+
+        context.Add(cargo);
+        context.SaveChanges();
+    }
+
+
+
     
 }
 
